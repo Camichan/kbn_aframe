@@ -2,12 +2,16 @@
 //import { VisFactoryProvider } from 'ui/vis/vis_factory'; -- Version Anterior a 7.x
 //import { VisTypesRegistryProvider } from 'ui/registry/vis_types'; -- Version Anterior a 7.x
 
+//import registerVisualization
 import { visFactory } from 'ui/vis/vis_factory';
 import { setup as visualizations } from '../../../src/legacy/core_plugins/visualizations/public/np_ready/public/legacy';
-import template from './index.html';
-import logo from './cami.png';
 //import aframe
 const aframe = require('aframe');
+//import box and template
+import box from './box.js'
+import template from './index.html';
+
+
 
 // define class
 class MyVisualization {
