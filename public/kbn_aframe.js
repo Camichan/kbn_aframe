@@ -10,7 +10,7 @@ const aframe = require('aframe');
 //import box and template
 import box from './box.js'
 import template from './index.html';
-
+import style from './aframe.css';
 
 
 // define class
@@ -21,12 +21,14 @@ class MyVisualization {
       this.container = document.createElement('div');
       this.container.className = 'myvis-container-div';
       this.el.appendChild(this.container);
+      this.container.innerHTML = template;
       console.log('Empezamos');
 
    }
    async render(visData, status) {
       console.log('Hola mundo');
-      this.container.innerHTML = template;
+      // update when data changed
+      //this.container.innerHTML = template;
       return 'done rendering';
    }
    destroy() {
