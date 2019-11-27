@@ -5,12 +5,17 @@
 //import registerVisualization
 import { visFactory } from 'ui/vis/vis_factory';
 import { setup as visualizations } from '../../../src/legacy/core_plugins/visualizations/public/np_ready/public/legacy';
+
+import { Schemas } from 'ui/vis/editors/default/schemas'; //declarar schemas
+import optionsTemplate from './options_template.html';
+
 //import aframe
 const aframe = require('aframe');
 //import box and template
 import box from './box.js'
 import template from './index.html';
-import style from './aframe.css';
+import style from './aframe.less';
+
 
 
 // define class
@@ -22,6 +27,7 @@ class MyVisualization {
       this.container.className = 'myvis-container-div';
       this.el.appendChild(this.container);
       this.container.innerHTML = template;
+      this.config = vis.type.editorConfig;
       console.log('Empezamos');
 
    }
@@ -39,20 +45,35 @@ class MyVisualization {
 
 // define the new visualization
 //function BoxVisTypeProvider(Private){ -- Version Anterior a 7.x
-function BoxVisTypeProvider() {
+function BoxVisTypeProvider(Private) {
   //const VisFactory = Private(VisFactoryProvider); -- Version Anterior a 7.x
-
   return visFactory.createBaseVisualization({
     name: 'my_new_vis',
-    title: 'EL BOX',
+    title: 'VR Experience',
     icon: 'list',
-    description: 'el cubo del averno',
+    description: 'Only a BOX and a SPHERE',
     visualization: MyVisualization,
     requestHandler: 'none',
 
     editor: 'default',
     stage: 'experimental',
-    feedbackMessage: '¡Bienvenida!'
+    feedbackMessage: 'Hello World!',
+
+    editorConfig: {
+      optionsTemplate: optionsTemplate,
+      schemas: new Schemas([
+        {
+          group: 'metrics',
+          name: 'metric',
+          title: 'Metric',
+          min: 1,
+          aggFilter: ['!derivative', '!geo_centroid'],
+          defaults: [
+            { type: 'count', schema: 'metric' }
+          ]
+        }
+      ]),
+    }
 
   });
 }
