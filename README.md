@@ -1,5 +1,5 @@
 # KBN_AFRAME
-Plugin developed for Kibana that shows your data in a VR Experience Visualization.
+Kibana plugin developed to display your data in a VR Experience Visualization.
 
 ![Screenshot](images/Kbn_aframe_image.png)
 
@@ -18,7 +18,7 @@ cd kbn_aframe
 rm -rf images
 npm install
 ```
-Now, you'll can use this plugin in your Kibana.
+Now, you’ll be able to use this plugin in your Kibana.
 
 #### Uninstall:
 If you want to uninstall the plugin follow these steps:
@@ -28,13 +28,12 @@ rm -rf plugins/kbn_aframe/
 ```
 ### HOW TO USE
 
-To use this plugin, only use like a default visualization.
+Use this plugin creating a new “VR Experience” visualization.
 
 ![Screenshot](images/how_to_use.gif)
 
-> :bangbang: ** IMPORTANT:** At moment, only you can see a box and a sphere without using data.
+> :bangbang: **IMPORTANT:** This plugin is currently under development and it displays only a box and a sphere.
 
 
 ### CONTACT
-Please, help me to improve.
-If you have any trouble, [send me a e-mail](mailto:camaratomoyo@gmail.com) :e-mail:
+Please, help me to improve. [Send me](mailto:camaratomoyo@gmail.com) :e-mail: your troubles and feedback.
