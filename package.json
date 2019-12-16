@@ -5,7 +5,7 @@
     "version": "kibana"
   },
   "authors": [
-    "Andrea Villaverde <camaratomoyob@gmail.com>"
+    "Andrea Villaverde <camaratomoyo@gmail.com>"
   ],
   "dependencies": {
     "aframe": "^0.9.2"

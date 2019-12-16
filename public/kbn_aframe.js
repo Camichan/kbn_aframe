@@ -5,76 +5,73 @@
 //import registerVisualization
 import { visFactory } from 'ui/vis/vis_factory';
 import { setup as visualizations } from '../../../src/legacy/core_plugins/visualizations/public/np_ready/public/legacy';
-
-import { Schemas } from 'ui/vis/editors/default/schemas'; //declarar schemas
+import { Schemas } from 'ui/vis/editors/default/schemas';
+import { AggGroupNames } from 'ui/vis/editors/default';
 import optionsTemplate from './options_template.html';
-
+//import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
 //import aframe
 const aframe = require('aframe');
+
 //import box and template
 import box from './box.js'
 import template from './index.html';
 import style from './aframe.less';
 
+import { VisController } from './kbn_aframe_controller.js';
 
 
-// define class
-class MyVisualization {
-   constructor(el, vis) {
-      this.el = el;
-      this.vis = vis;
-      this.container = document.createElement('div');
-      this.container.className = 'myvis-container-div';
-      this.el.appendChild(this.container);
-      this.container.innerHTML = template;
-      this.config = vis.type.editorConfig;
-      console.log('Empezamos');
-
-   }
-   async render(visData, status) {
-      console.log('Hola mundo');
-      // update when data changed
-      //this.container.innerHTML = template;
-      return 'done rendering';
-   }
-   destroy() {
-      this.el.innerHTML = '';
-      console.log('destroying');
-   }
-};
 
 // define the new visualization
 //function BoxVisTypeProvider(Private){ -- Version Anterior a 7.x
 function BoxVisTypeProvider(Private) {
-  //const VisFactory = Private(VisFactoryProvider); -- Version Anterior a 7.x
+  //const VisFactory = Private(visFactory); //-- Version Anterior a 7.x
   return visFactory.createBaseVisualization({
-    name: 'my_new_vis',
+
+    name: 'vis_aframe',
     title: 'VR Experience',
     icon: 'list',
     description: 'Only a BOX and a SPHERE',
-    visualization: MyVisualization,
-    requestHandler: 'none',
+    visualization: VisController,
+    visConfig: {
+      defaults: {
+        // add default parameters
+        fontSize: '15'
+      },
+    },
 
-    editor: 'default',
+  /*  editor: 'default',
     stage: 'experimental',
-    feedbackMessage: 'Hello World!',
+    feedbackMessage: 'Hello World!',*/
 
     editorConfig: {
       optionsTemplate: optionsTemplate,
       schemas: new Schemas([
         {
-          group: 'metrics',
+          group: AggGroupNames.Metrics,
           name: 'metric',
-          title: 'Metric',
+          title: 'X-axis',
           min: 1,
-          aggFilter: ['!derivative', '!geo_centroid'],
-          defaults: [
-            { type: 'count', schema: 'metric' }
-          ]
+          max: 1,
+          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
+        },
+        {
+          group: AggGroupNames.Metrics,
+          name: 'y-axis',
+          title: 'Y-axis',
+          min: 1,
+          max: 1,
+          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
+        },
+        {
+          group: AggGroupNames.Metrics,
+          name: 'z-axis',
+          title: 'Z-axis',
+          min: 1,
+          max: 1,
+          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
         }
       ]),
     }
-
   });
 }
 
