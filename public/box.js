@@ -7,7 +7,6 @@ AFRAME.registerComponent('box', {
     width: {type: 'number', default: 1},
     height: {type: 'number', default: 1},
     depth: {type: 'number', default: 1},
-    color: {type: 'color', default: '#AAA'}
   },
 
   //Funcion inicial
@@ -18,11 +17,8 @@ AFRAME.registerComponent('box', {
     // Crea la figura
     this.geometry = new THREE.BoxBufferGeometry(data.width, data.height, data.depth);
 
-    // Se le da un material
-    this.material = new THREE.MeshStandardMaterial({color: data.color});
-
     // Creamos la mesh
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh = new THREE.Mesh(this.geometry);
 
     // Creamos el objeto 3D
     el.setObject3D('mesh', this.mesh);
@@ -46,10 +42,6 @@ AFRAME.registerComponent('box', {
                                                                     data.depth);
     }
 
-    // Material-related properties changed. Update the material.
-    if (data.color !== oldData.color) {
-      el.getObject3D('mesh').material.color = new THREE.Color(data.color);
-    }
   },
 
   // Borramos la figura

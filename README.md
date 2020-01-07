@@ -28,11 +28,11 @@ rm -rf plugins/kbn_aframe/
 ```
 ### HOW TO USE
 
-Use this plugin creating a new “VR Experience” visualization.
+Use this plugin creating a new “VR Experience” visualization. Then entry your elasticsearch data (3 axis) to draw the box.
 
 ![Screenshot](images/how_to_use.gif)
 
-> :bangbang: **IMPORTANT:** This plugin is currently under development and it displays only a box and a sphere.
+> :bangbang: **IMPORTANT:** This plugin is currently under development and it displays only a box with your data and a simple sphere.
 
 
 ### CONTACT
