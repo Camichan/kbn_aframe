@@ -1,6 +1,6 @@
 {
   "name": "kbn_aframe",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "kibana": {
     "version": "kibana"
   },
@@ -8,9 +8,12 @@
     "Andrea Villaverde <camaratomoyo@gmail.com>"
   ],
   "dependencies": {
-    "aframe": "^0.9.2",
+    "aframe": ">=1.0.0",
     "lodash": ">=4.17.12",
     "clean-css": ">=4.1.11",
-    "braces": ">=2.3.1"
+    "braces": ">=2.3.1",
+    "aframe-babia-components": ">=1.0.5",
+    "aframe-extras": ">=6.1.0",
+    "aframe-environment-component": ">=2.0.0"
   }
 }
