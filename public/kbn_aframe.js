@@ -1,32 +1,21 @@
 
 //import { VisFactoryProvider } from 'ui/vis/vis_factory'; -- Version Anterior a 7.x
-//import { VisTypesRegistryProvider } from 'ui/registry/vis_types'; -- Version Anterior a 7.x
+//import { VisTypesRegistryProvider } from 'ui/registry/vis_types'; //-- Version Anterior a 7.x
 
 //import registerVisualization
-import { visFactory } from 'ui/vis/vis_factory';
+//import { visFactory } from 'ui/vis/vis_factory';
 import { setup as visualizations } from '../../../src/legacy/core_plugins/visualizations/public/np_ready/public/legacy';
 import { Schemas } from 'ui/vis/editors/default/schemas';
 import { AggGroupNames } from 'ui/vis/editors/default';
-import optionsTemplate from './options_template.html';
-//import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
-//import aframe
-const aframe = require('aframe');
-
-//import box and template
-import box from './box.js'
-import template from './index.html';
+//import optionsTemplate from './options_template.html';
 import style from './aframe.less';
-
 import { VisController } from './kbn_aframe_controller.js';
-
 
 
 // define the new visualization
 //function BoxVisTypeProvider(Private){ -- Version Anterior a 7.x
-function BoxVisTypeProvider(Private) {
+const BoxVisTypeProvider = {
   //const VisFactory = Private(visFactory); //-- Version Anterior a 7.x
-  return visFactory.createBaseVisualization({
-
     name: 'vis_aframe',
     title: 'VR Experience',
     icon: 'list',
@@ -39,42 +28,34 @@ function BoxVisTypeProvider(Private) {
       },
     },
 
-  /*  editor: 'default',
-    stage: 'experimental',
-    feedbackMessage: 'Hello World!',*/
-
     editorConfig: {
-      optionsTemplate: optionsTemplate,
+      //optionsTemplate: optionsTemplate,
       schemas: new Schemas([
         {
           group: AggGroupNames.Metrics,
           name: 'metric',
-          title: 'X-axis',
+          title: 'Slice size',
           min: 1,
           max: 1,
-          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
+          aggFilter: ['sum', 'count', 'cardinality', 'top_hits'],
+          defaults: [{ schema: 'metric', type: 'count' }],
         },
         {
-          group: AggGroupNames.Metrics,
-          name: 'y-axis',
-          title: 'Y-axis',
-          min: 1,
+          group: AggGroupNames.Buckets,
+          name: 'segment',
+          title: 'Split slices',
+          min: 0,
           max: 1,
-          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
+          aggFilter: ['!geohash_grid', '!geotile_grid', '!filter'],
         },
-        {
-          group: AggGroupNames.Metrics,
-          name: 'z-axis',
-          title: 'Z-axis',
-          min: 1,
-          max: 1,
-          aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality', 'std_dev']
-        }
       ]),
     }
-  });
-}
+  };
+
+
+visualizations.types.createBaseVisualization(BoxVisTypeProvider);
+
 
 //Register the provider with the visType Register
-visualizations.types.registerVisualization(BoxVisTypeProvider);
-//VisTypesRegistryProvider.register(BoxVisTypeProvider); -- Version Anterior a 7.x
+//visualizations.types.registerVisualization(BoxVisTypeProvider);
+//VisTypesRegistryProvider.register(BoxVisTypeProvider); //-- Version Anterior a 7.x
