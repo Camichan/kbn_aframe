@@ -17,9 +17,9 @@ import { VisController } from './kbn_aframe_controller.js';
 const BoxVisTypeProvider = {
   //const VisFactory = Private(visFactory); //-- Version Anterior a 7.x
     name: 'vis_aframe',
-    title: 'VR Experience',
-    icon: 'list',
-    description: 'Only a BOX and a SPHERE',
+    title: 'Pie VR',
+    icon: 'visPie',
+    description: 'Compare parts of a whole (VR Chart).',
     visualization: VisController,
     visConfig: {
       defaults: {
