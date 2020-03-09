@@ -1,7 +1,7 @@
 # KBN_AFRAME
 Kibana plugin developed to display your data in a VR Experience Visualization.
 
-![Screenshot](images/Kbn_aframe_image.gif)
+![Screenshot](images/kbn_aframe_image.gif)
 
 ### INSTALLATION
 
