@@ -1,6 +1,6 @@
 {
   "name": "kbn_aframe",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "kibana": {
     "version": "kibana"
   },
@@ -14,6 +14,7 @@
     "braces": ">=2.3.1",
     "aframe-babia-components": ">=1.0.5",
     "aframe-extras": ">=6.1.0",
-    "aframe-environment-component": ">=2.0.0"
+    "aframe-environment-component": ">=2.0.0",
+    "minimist": ">=1.2.2"
   }
 }
