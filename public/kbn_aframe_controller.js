@@ -28,6 +28,7 @@ class VisController {
           this.container.innerHTML = '';
           old_data = visData;
           let table = visData;
+          console.log(this.vis.params.type);
           let metrics = getMetrics(table, this.vis.params.type);
           console.log(metrics);
 

@@ -5,7 +5,6 @@ function createControls (){
   controls.setAttribute('movement-controls', {fly: true});
 
   var camera = document.createElement('a-camera');
-  camera.setAttribute('look-controls', true);
   camera.setAttribute('position', { x: 0, y: 2.5, z: 1 });
   controls.appendChild(camera);
 

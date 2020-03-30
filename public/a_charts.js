@@ -31,7 +31,7 @@ function createChart (type, data) {
       legend: true,   // legend
       data: data      // data
     });
-    chart.setAttribute('position', { x: 0, y: 0, z: -15 });
+    chart.setAttribute('position', { x: 0, y: 0, z: -5 });
     chart.setAttribute('rotation', { x: 0, y: 0, z: 0 });
   }
   return chart;
