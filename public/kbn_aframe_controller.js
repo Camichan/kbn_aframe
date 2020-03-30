@@ -1,7 +1,4 @@
 import 'aframe';
-import 'aframe-babia-components';
-import 'aframe-extras';
-import 'aframe-environment-component';
 import './aframe.less';
 
 import { getMetrics } from './metrics';

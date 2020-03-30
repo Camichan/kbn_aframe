@@ -1,9 +1,7 @@
-import 'aframe';
-import 'aframe-extras';
 import 'aframe-environment-component';
 
 function createScene (){
-  //Creando escenario
+  //Create a_scene
   var escena = escena = document.createElement('a-scene');
   escena.setAttribute('id', 'AframeScene');
   escena.setAttribute('embedded', true);
