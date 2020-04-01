@@ -2,7 +2,7 @@
   "name": "kbn_aframe",
   "version": "0.1.0",
   "kibana": {
-    "version": "kibana"
+    "version": "7.6.0"
   },
   "authors": [
     "Andrea Villaverde <camaratomoyo@gmail.com>"
