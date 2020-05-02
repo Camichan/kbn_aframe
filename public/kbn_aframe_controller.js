@@ -23,6 +23,7 @@ class VisController {
    }
 
    render(visData, status) {
+
       if (visData) {
         if ((!old_data)||(old_data != visData)){
           this.container.innerHTML = '';
