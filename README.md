@@ -36,7 +36,8 @@ rm -rf plugins/kbn_aframe/
 ```
 ### HOW TO USE
 
-Use this plugin creating a new VR visualization. Works as Kibana's Pie Visualization.
+In order to create a new vr visualization, you need to choose your desired vr visualization type from the list (the same way you create a standard kibana visuialization).
+
 
 ![Screenshot](images/how_to_use.gif)
 
